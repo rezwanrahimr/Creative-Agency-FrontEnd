@@ -1,8 +1,8 @@
-@import "../../../Scss//variables";
+@import "../../../Scss/variables";
+@import "../../../Scss/mixin";
 
 .about-text-container {
   h1 {
-    font-size: $secondary-font-size;
-    font-weight: 700;
+    @include mainTitle($secondary-font-size, 700);
   }
 }

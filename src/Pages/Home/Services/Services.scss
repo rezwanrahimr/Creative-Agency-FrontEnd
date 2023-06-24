@@ -1,0 +1,33 @@
+@import "../../../Scss//mixin";
+@import "../../../Scss/variables";
+
+.services-container {
+  position: relative;
+  height: 500px;
+  background-image: url("../../../assets//images/dot-shape.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #d4f0ff;
+
+  //   Text Content
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-text-content {
+  text-align: center;
+  line-height: 62px;
+  h1 {
+    @include mainTitle($secondary-font-size, 700);
+  }
+}
+
+@media (max-width: "768px") {
+  .service-text-content {
+    h1 {
+      @include mainTitle(30px, 700);
+    }
+  }
+}

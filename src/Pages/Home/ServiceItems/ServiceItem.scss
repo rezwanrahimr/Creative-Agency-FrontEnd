@@ -1,0 +1,56 @@
+@import "../../../Scss/variables";
+
+.service-items {
+  position: absolute;
+  bottom: -70%;
+}
+.service-items-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.service-card {
+  position: relative;
+  .card-img {
+    z-index: 1;
+    img {
+      width: 80%;
+    }
+  }
+}
+.card-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+}
+
+.card-actions:hover {
+  color: $secondary-color;
+  font-weight: 500;
+}
+
+/* 
+{
+    "id": 2,
+    "title": "Logo & Branding Service",
+    "subTitle": "We can offer you some guidance on creating a logo for your Android application beautifully logo.",
+    "photo": "https://i.ibb.co/56Jxq0y/Creative-thinking-bro.png"
+  },
+
+*/
+
+// Media Query
+@media (max-width: 768px) {
+  .service-items-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+  }
+  .service-items {
+    position: absolute;
+    bottom: 0;
+    top: 330px;
+  }
+}

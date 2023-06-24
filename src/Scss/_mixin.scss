@@ -1,0 +1,6 @@
+@import "./variables";
+
+@mixin mainTitle($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
