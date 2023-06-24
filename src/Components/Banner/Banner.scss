@@ -1,0 +1,31 @@
+@import "../../Scss/variables";
+@import "../../Scss//extend";
+
+.banner-container {
+  position: relative;
+}
+.content-div {
+  margin: 0 50px;
+  padding-top: 100px;
+
+  .banner-img {
+    @extend .slide-in-fwd-tr;
+  }
+}
+.text-content {
+  h1 {
+    font-size: $primary-font-size;
+    font-weight: 700;
+    line-height: 62px;
+  }
+  button {
+    @extend .flicker-5, .hover-btn;
+  }
+}
+
+// Media Query
+@media (max-width: 786px) {
+  .text-content h1 {
+    font-size: 40px;
+  }
+}

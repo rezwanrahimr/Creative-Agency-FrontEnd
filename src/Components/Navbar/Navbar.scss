@@ -1,0 +1,15 @@
+@import "../../Scss/extend";
+
+.company-logo {
+  width: 151px;
+  height: 47px;
+}
+
+.navbar {
+  position: absolute;
+  margin-top: 18px;
+
+  .user-btn {
+    @extend .hover-btn;
+  }
+}
