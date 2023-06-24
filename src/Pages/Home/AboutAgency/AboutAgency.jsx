@@ -1,5 +1,6 @@
 import AboutAgencyImg from "../../../assets/images/Programming-amico.png";
 import founderImg from "../../../assets/images/IMG_5870 (2)2.jpg";
+import Typed from "react-typed";
 import "./AboutAgency.scss";
 
 const AboutAgency = () => {
@@ -38,11 +39,13 @@ const AboutAgency = () => {
             </div>
             <div className="ms-3">
               <h2 className="text-xl font-semibold">Rezwan Rahim</h2>
-              <p className="text-base">
-                Founder of{" "}
-                <span className="text-secondary font-semibold">
-                  Creative Agency
-                </span>
+              <p className="text-base text-secondary font-medium">
+                <Typed
+                  strings={["Founder of Creative Agency", "Jr Web Developer"]}
+                  typeSpeed={40}
+                  backSpeed={50}
+                  loop
+                />
               </p>
             </div>
           </div>
