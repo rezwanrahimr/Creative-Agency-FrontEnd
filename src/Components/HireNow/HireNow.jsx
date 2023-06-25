@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./HireNow.scss";
 import Typed from "react-typed";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const HireNow = () => {
   return (
@@ -26,7 +28,14 @@ const HireNow = () => {
 
         <div>
           {" "}
-          <button className="btn btn-secondary text-white">Hire Now </button>
+          <button className="btn btn-secondary text-white">
+            Hire Now{" "}
+            <FontAwesomeIcon
+              icon={faAngleRight}
+              beatFade
+              style={{ color: "#ffffff", margin: "3px 0 0 8px" }}
+            />
+          </button>
         </div>
       </div>
     </div>

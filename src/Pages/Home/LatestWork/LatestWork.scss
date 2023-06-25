@@ -1,0 +1,32 @@
+@import "../../../Scss//mixin";
+
+.work-text-content {
+  text-align: center;
+  margin: 100px 0;
+  h1 {
+    @include mainTitle($secondary-font-size, 700);
+  }
+}
+.work-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.bg-shape {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 60%;
+}
+
+@media (max-width: "768px") {
+  .work-text-content {
+    margin: 5px 0;
+    line-height: 62px;
+
+    h1 {
+      @include mainTitle(40px, 700);
+      line-height: 42px;
+    }
+  }
+}
