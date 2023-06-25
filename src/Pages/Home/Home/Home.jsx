@@ -1,3 +1,4 @@
+import ContactNow from "../../../Components/ContactNow/ContactNow";
 import HireNow from "../../../Components/HireNow/HireNow";
 import AboutAgency from "../AboutAgency/AboutAgency";
 import LatestWork from "../LatestWork/LatestWork";
@@ -10,6 +11,7 @@ const Home = () => {
       <Services></Services>
       <HireNow></HireNow>
       <LatestWork></LatestWork>
+      <ContactNow></ContactNow>
     </>
   );
 };
