@@ -1,0 +1,49 @@
+@import "../../Scss/mixin";
+@import "../../Scss/variables";
+
+.hire-container {
+  margin-top: 420px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    h1 {
+      font-size: 25px;
+    }
+    button {
+      padding: 0 25px;
+      margin: 25px;
+    }
+    button:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  .highlight {
+    @include mainTitle($secondary-font-size, 600);
+  }
+}
+
+@media (max-width: 768px) {
+  .hire-container {
+    margin-top: 1120px;
+    margin-bottom: 120px;
+    div {
+      flex-direction: column;
+    }
+    div {
+      h1 {
+        font-size: 15px;
+      }
+      button {
+        margin: 0 auto;
+      }
+    }
+
+    .highlight {
+      @include mainTitle(5, 200);
+    }
+  }
+}

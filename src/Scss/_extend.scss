@@ -5,6 +5,12 @@
   animation: slide-in-fwd-tr 1s ease-in-out 0.5s both;
 }
 
+.scale-in-left {
+  -webkit-animation: scale-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s
+    both;
+  animation: scale-in-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1 both;
+}
+
 // Button
 .hover-btn:hover {
   color: white;
@@ -277,6 +283,23 @@
     opacity: 1;
   }
   100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-left {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
     opacity: 1;
   }
 }

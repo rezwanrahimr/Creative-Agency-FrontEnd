@@ -1,4 +1,5 @@
 @import "../../../Scss/variables";
+@import "../../../Scss/extend";
 
 .service-items {
   position: absolute;
@@ -11,6 +12,7 @@
 }
 
 .service-card {
+  @extend .scale-in-left;
   position: relative;
   .card-img {
     z-index: 1;
@@ -18,6 +20,9 @@
       width: 80%;
     }
   }
+}
+.service-card:hover {
+  margin: 1px;
 }
 .card-shape {
   position: absolute;
@@ -52,5 +57,9 @@
     position: absolute;
     bottom: 0;
     top: 330px;
+    padding: 0;
+  }
+  .service-card {
+    width: 300px;
   }
 }
