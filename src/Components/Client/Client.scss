@@ -1,0 +1,25 @@
+.client-container {
+  margin: 400px 0 200px 0;
+}
+
+.client-content {
+  img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: "768px") {
+  .client-container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .client-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      margin: 7px;
+    }
+  }
+}

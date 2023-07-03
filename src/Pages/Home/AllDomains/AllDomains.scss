@@ -1,0 +1,68 @@
+@import "../../../Scss//mixin";
+@import "../../../Scss/variables";
+
+.domain-container {
+  padding: 80px 0;
+  background: rgb(251, 248, 237);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 248, 237, 1) 13%,
+    rgba(251, 235, 248, 1) 74%
+  );
+}
+.domain-content h1 {
+  @include mainTitle($secondary-font-size, 700);
+}
+
+#networking {
+  @include domains(#70e4e8);
+}
+#marketing {
+  @include domains(#f5eb92);
+}
+#ecommerce {
+  @include domains(#a3ffe2);
+}
+#video {
+  @include domains(#ffbc7a);
+}
+#banking {
+  @include domains(#e3ff8e);
+}
+#enterprise {
+  @include domains(#ffa0c6);
+}
+#education {
+  @include domains(#f3a6ff);
+}
+#travels {
+  @include domains(#97ffaf);
+}
+#health {
+  @include domains(#6cfffa);
+}
+#ticket {
+  @include domains(#77baff);
+}
+#restaurant {
+  @include domains(#ffefd4);
+}
+#business {
+  @include domains(#7affdb);
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: "768px") {
+  .domain-content {
+    text-align: center;
+  }
+  .services-content {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

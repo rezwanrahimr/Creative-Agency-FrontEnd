@@ -4,3 +4,17 @@
   font-size: $size;
   font-weight: $weight;
 }
+
+@mixin domains($color) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 170px;
+  width: 170px;
+  margin: 10px;
+  border-radius: 8px 40px;
+  padding: 30px 20px;
+  background-color: $color;
+  text-align: center;
+}
