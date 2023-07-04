@@ -17,14 +17,14 @@ const Dashboard = () => {
           <div className="drawer-content flex flex-col items-start justify-start ps-8 pt-8 bg-slate-100">
             {/* Page content here */}
             <Outlet></Outlet>
-            <label
+            {/* <label
               htmlFor="my-drawer-2"
               className="btn btn-primary drawer-button lg:hidden"
             >
               Open drawer
-            </label>
+            </label> */}
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side z-10">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
             <ul className="menu p-4 w-60 h-full bg-white text-base-content font-medium text-base">
               {/* Sidebar content here */}

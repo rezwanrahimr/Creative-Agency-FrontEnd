@@ -1,8 +1,10 @@
 import logo from "../../assets/logos/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.scss";
 
 const Navbar = () => {
+  const location = useLocation();
+  console.log(location);
   let navItems = (
     <>
       <li>
@@ -20,6 +22,13 @@ const Navbar = () => {
       <li>
         <Link to="/dashboard">DASHBOARD</Link>
       </li>
+      {location.pathname == "/dashboard" && (
+        <li>
+          <label htmlFor="my-drawer-2" className="lg:hidden">
+            DASHBOARD MENU
+          </label>
+        </li>
+      )}
       <li>
         <Link to="/login" className="bg-primary text-white user-btn">
           LOGIN

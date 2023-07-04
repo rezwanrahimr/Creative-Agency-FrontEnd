@@ -6,3 +6,13 @@
     margin: 5px;
   }
 }
+
+@media (max-width: "768px") {
+  .order-container {
+    input,
+    select,
+    textarea {
+      width: 90%;
+    }
+  }
+}
