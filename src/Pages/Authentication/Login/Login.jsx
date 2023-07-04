@@ -1,13 +1,24 @@
 import logo from "../../../assets/logos/logo.png";
 import googleImg from "../../../assets/images/Group 573.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContexts } from "../../../Context/AuthContext";
 
 const Login = () => {
+  const { loginWithEmail } = useContext(AuthContexts);
   const handleLoginForm = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+
+    // Login with email and password
+    loginWithEmail(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+      });
   };
   return (
     <div>
