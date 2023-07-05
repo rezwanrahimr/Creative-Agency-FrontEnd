@@ -41,7 +41,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/review">
                   <FontAwesomeIcon icon={faCommentDots} />
                   Review
                 </Link>
