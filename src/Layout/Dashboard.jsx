@@ -35,7 +35,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link>
+                <Link to="/dashboard/service">
                   <FontAwesomeIcon icon={faShopLock} />
                   Service list
                 </Link>

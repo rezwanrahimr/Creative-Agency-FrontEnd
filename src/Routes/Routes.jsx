@@ -6,6 +6,7 @@ import SignUp from "../Pages/Authentication/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard";
 import Order from "../Pages/Dashboard/Order/Order";
 import Review from "../Pages/Dashboard/Review/Review";
+import ServiceList from "../Pages/Dashboard/ServiceList/ServiceList";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Order></Order>,
+      },
+      {
+        path: "/dashboard/service",
+        element: <ServiceList></ServiceList>,
       },
       {
         path: "/dashboard/review",

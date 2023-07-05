@@ -17,7 +17,8 @@ const Order = () => {
     const serviceName = service;
     const projectDetails = proDetails;
     const price = e.target.price.value;
-    const projectFile = e.target.file.files[0];
+
+    // const projectFile = e.target.file.files[0];
 
     const order = {
       name,
@@ -27,7 +28,7 @@ const Order = () => {
       price,
       status: "On going",
     };
-    console.log(order);
+
     //
     fetch("http://localhost:5000/order", {
       method: "POST",
@@ -38,8 +39,10 @@ const Order = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        data.ackhonaged && console.log(data);
-        Swal.fire("Thanks for Order", "You Order is Submit!", "success");
+        console.log(data);
+        data.acknowledged &&
+          Swal.fire("Thanks for Order", "You Order is Submit!", "success");
+        e.target.reset();
       });
   };
   return (
