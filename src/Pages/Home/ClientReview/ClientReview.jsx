@@ -7,11 +7,21 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper";
+import { useQuery } from "react-query";
+import "./ClientReview.scss";
 
 const ClientReview = () => {
+  const { data } = useQuery({
+    queryKey: [],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/review");
+      const data = await res.json();
+      return data;
+    },
+  });
   return (
-    <div className="flex">
-      <div>
+    <div className="md:flex items-center review-container md:py-14 py-8">
+      <div className="review-content md:p-12 p-8">
         <h2 className="text-secondary">CLIENTS TESTIMONIAL</h2>
         <h1 className="text-primary">
           What our clients say about our Company.
@@ -23,17 +33,26 @@ const ClientReview = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper "
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {data?.slice(0, 5).map((review) => (
+          <SwiperSlide key={review._id} className="md:p-12 px-8">
+            <div>
+              <p className="text-justify">{review.details}</p> <br />
+              <div className="flex items-center">
+                <div className="avatar me-3">
+                  <div className="w-24 rounded-full">
+                    <img src={review.image}></img>
+                  </div>
+                </div>
+                <div className="text-left">
+                  <h1 className="font-bold">{review.name}</h1>
+                  <h2>{review.designation}</h2>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

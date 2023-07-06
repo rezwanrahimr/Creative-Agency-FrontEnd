@@ -1,0 +1,24 @@
+@import "../../../Scss//mixin";
+
+.review-content {
+  h1 {
+    @include mainTitle($secondary-font-size, 600);
+  }
+}
+
+@media (min-width: "768px") {
+  .review-container {
+    background-image: url("../../../assets//images//shape-9.svg");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: "768px") {
+  .review-content {
+    h1 {
+      @include mainTitle(30px, 600);
+    }
+  }
+}

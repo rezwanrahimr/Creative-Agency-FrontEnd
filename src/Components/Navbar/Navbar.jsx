@@ -1,10 +1,26 @@
 import logo from "../../assets/logos/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.scss";
+import { useContext } from "react";
+import { AuthContexts } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const location = useLocation();
-  console.log(location);
+  const { user, logOut } = useContext(AuthContexts);
+  console.log(user);
+
+  // LogOut
+  function SignOut() {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+        console.log("Sign-out successful.");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  }
   let navItems = (
     <>
       <li>
@@ -19,9 +35,11 @@ const Navbar = () => {
       <li>
         <Link to="/contactUs">CONTACT US</Link>
       </li>
-      <li>
-        <Link to="/dashboard">DASHBOARD</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to="/dashboard">DASHBOARD</Link>
+        </li>
+      )}
       {location.pathname == "/dashboard" && (
         <li>
           <label htmlFor="my-drawer-2" className="lg:hidden">
@@ -30,9 +48,15 @@ const Navbar = () => {
         </li>
       )}
       <li>
-        <Link to="/login" className="bg-primary text-white user-btn">
-          LOGIN
-        </Link>
+        {user ? (
+          <Link className="bg-primary text-white user-btn" onClick={SignOut}>
+            LOG-OUT
+          </Link>
+        ) : (
+          <Link to="/login" className="bg-primary text-white user-btn">
+            LOGIN
+          </Link>
+        )}
       </li>
     </>
   );

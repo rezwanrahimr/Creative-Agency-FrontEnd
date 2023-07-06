@@ -4,6 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
@@ -36,7 +38,26 @@ const AuthContext = ({ children }) => {
     });
   }, [auth]);
 
-  const data = { user, createUserWithEmail, loginWithEmail };
+  // LogOut
+  const logOut = () => {
+    return signOut(auth);
+  };
+
+  // Update Profile
+  const profileUpdate = (name, url) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: url,
+    });
+  };
+
+  const data = {
+    user,
+    createUserWithEmail,
+    loginWithEmail,
+    logOut,
+    profileUpdate,
+  };
   return (
     <>
       <AuthContexts.Provider value={data}>{children}</AuthContexts.Provider>;

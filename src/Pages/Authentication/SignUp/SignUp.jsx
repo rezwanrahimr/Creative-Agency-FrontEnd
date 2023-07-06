@@ -6,7 +6,7 @@ import { AuthContexts } from "../../../Context/AuthContext";
 
 const SignUp = () => {
   // Auth Context
-  const { createUserWithEmail } = useContext(AuthContexts);
+  const { createUserWithEmail, profileUpdate } = useContext(AuthContexts);
   const handleSignUpForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,13 +15,45 @@ const SignUp = () => {
     const password = form.password.value;
     const photo = form.image.files[0];
 
+    const image = new FormData();
+    image.append("image", photo);
+
     // Create User with email and password
     createUserWithEmail(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        if (user) {
+          fetch(
+            `https://api.imgbb.com/1/upload?key=5756255c76d4869d95450653607b1dd9`,
+            {
+              method: "POST",
+              body: image,
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              if (data?.success) {
+                const photoUrl = data.data.url;
+                console.log(photoUrl);
+                profileUpdate(name, photoUrl)
+                  .then(() => {
+                    // Profile updated!
+                    // ...
+                    console.log("Profile updated");
+                  })
+                  .catch((error) => {
+                    // An error occurred
+                    // ...
+                    console.log(error);
+                  });
+              }
+              console.log("photo", data);
+            });
+        }
       })
       .catch((error) => {
         const errorMessage = error.message;
+        console.log(errorMessage);
       });
   };
   return (

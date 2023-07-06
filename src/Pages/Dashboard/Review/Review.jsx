@@ -1,6 +1,39 @@
+import { useContext } from "react";
+import { AuthContexts } from "../../../Context/AuthContext";
+
 const Review = () => {
+  const { user } = useContext(AuthContexts);
+  //
+  const handleReview = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const designation = e.target.designation.value;
+    const details = e.target.details.value;
+
+    const userReview = {
+      name,
+      designation,
+      details,
+      image: user?.photoURL,
+    };
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userReview }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          //
+        }
+      });
+  };
   return (
-    <form className="w-1/2">
+    <form className="w-1/2" onSubmit={handleReview}>
       <input
         name="name"
         type="text"
@@ -10,7 +43,7 @@ const Review = () => {
       />{" "}
       <br />
       <input
-        name="email"
+        name="designation"
         type="text"
         required
         placeholder="Company’s name, Designation"
@@ -18,12 +51,15 @@ const Review = () => {
       />
       <br />
       <textarea
-        name="Description"
+        name="details"
         className="textarea textarea-bordered w-full h-28 required"
         placeholder="Project Details"
       ></textarea>
       <br />
-      <button className="btn btn-active btn-neutral w-1/2 mt-2 text-white">
+      <button
+        type="submit"
+        className="btn btn-active btn-neutral w-1/2 mt-2 text-white"
+      >
         submit
       </button>
     </form>
