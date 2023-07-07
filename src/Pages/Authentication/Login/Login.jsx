@@ -1,11 +1,16 @@
 import logo from "../../../assets/logos/logo.png";
 import googleImg from "../../../assets/images/Group 573.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContexts } from "../../../Context/AuthContext";
+import { verifyUser } from "../../../hooks/VerifyUser";
 
 const Login = () => {
   const { loginWithEmail } = useContext(AuthContexts);
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+
   const handleLoginForm = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -15,9 +20,17 @@ const Login = () => {
     loginWithEmail(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        const userInfo = {
+          email: email,
+        };
+        if (user) {
+          verifyUser(userInfo);
+          navigate(from, { replace: true });
+        }
       })
       .catch((error) => {
         const errorMessage = error.message;
+        console.log(errorMessage);
       });
   };
   return (

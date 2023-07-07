@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Dashboard";
 import Order from "../Pages/Dashboard/Order/Order";
 import Review from "../Pages/Dashboard/Review/Review";
 import ServiceList from "../Pages/Dashboard/ServiceList/ServiceList";
+import PrivateRoute from "../hooks/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -29,11 +34,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/service",
-        element: <ServiceList></ServiceList>,
+        element: (
+          <PrivateRoute>
+            <ServiceList></ServiceList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/review",
-        element: <Review></Review>,
+        element: (
+          <PrivateRoute>
+            <Review></Review>
+          </PrivateRoute>
+        ),
       },
     ],
   },

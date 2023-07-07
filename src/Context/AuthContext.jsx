@@ -13,6 +13,7 @@ export const AuthContexts = createContext();
 // eslint-disable-next-line react/prop-types
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth(app);
 
   // Create user using email and password
@@ -31,6 +32,7 @@ const AuthContext = ({ children }) => {
       if (user) {
         const uid = user.uid;
         setUser(user);
+        setIsLoading(false);
       } else {
         // User is signed out
         setUser(null);
@@ -52,6 +54,7 @@ const AuthContext = ({ children }) => {
   };
 
   const data = {
+    isLoading,
     user,
     createUserWithEmail,
     loginWithEmail,

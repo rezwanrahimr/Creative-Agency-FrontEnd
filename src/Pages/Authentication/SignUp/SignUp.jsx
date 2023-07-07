@@ -1,12 +1,18 @@
 import logo from "../../../assets/logos/logo.png";
 import googleImg from "../../../assets/images/Group 573.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContexts } from "../../../Context/AuthContext";
+import { verifyUser } from "../../../hooks/VerifyUser";
 
 const SignUp = () => {
   // Auth Context
   const { createUserWithEmail, profileUpdate } = useContext(AuthContexts);
+
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+
   const handleSignUpForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -34,20 +40,21 @@ const SignUp = () => {
             .then((data) => {
               if (data?.success) {
                 const photoUrl = data.data.url;
-                console.log(photoUrl);
+
                 profileUpdate(name, photoUrl)
                   .then(() => {
-                    // Profile updated!
-                    // ...
-                    console.log("Profile updated");
+                    const userInfo = {
+                      name,
+                      email,
+                      image: photoUrl,
+                    };
+                    verifyUser(userInfo);
+                    navigate(from, { replace: true });
                   })
                   .catch((error) => {
-                    // An error occurred
-                    // ...
                     console.log(error);
                   });
               }
-              console.log("photo", data);
             });
         }
       })
