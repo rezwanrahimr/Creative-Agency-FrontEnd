@@ -8,6 +8,7 @@ import Order from "../Pages/Dashboard/Order/Order";
 import Review from "../Pages/Dashboard/Review/Review";
 import ServiceList from "../Pages/Dashboard/ServiceList/ServiceList";
 import PrivateRoute from "../hooks/PrivateRoute";
+import AllOrder from "../Pages/Dashboard/AllOrder/AllOrder";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Review></Review>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allOrder",
+        element: (
+          <PrivateRoute>
+            <AllOrder></AllOrder>
           </PrivateRoute>
         ),
       },

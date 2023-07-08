@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faCommentDots,
+  faPlus,
   faShopLock,
+  faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
@@ -44,6 +46,24 @@ const Dashboard = () => {
                 <Link to="/dashboard/review">
                   <FontAwesomeIcon icon={faCommentDots} />
                   Review
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/allOrder">
+                  <FontAwesomeIcon icon={faShopLock} />
+                  Service list
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/review">
+                  <FontAwesomeIcon icon={faPlus} />
+                  Add Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard/review">
+                  <FontAwesomeIcon icon={faUserPlus} />
+                  Make Admin
                 </Link>
               </li>
             </ul>
