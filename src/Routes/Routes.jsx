@@ -12,6 +12,7 @@ import AllOrder from "../Pages/Dashboard/AllOrder/AllOrder";
 import AddService from "../Pages/Dashboard/AddService/AddService";
 import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
 import OurTeam from "../Pages/OurTeam/OurTeam/OurTeam";
+import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio/OurPortfolio";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/ourPortfolio",
+        element: <OurPortfolio></OurPortfolio>,
       },
       {
         path: "/contactUs",
