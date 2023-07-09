@@ -21,19 +21,20 @@ const AllOrder = () => {
 
   useEffect(() => {
     let updateStatus = status[1];
-    fetch(`http://localhost:5000/order/${status[0]}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ updateStatus }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          refetch();
-        }
-      });
+    status[0] !== undefined &&
+      fetch(`http://localhost:5000/order/${status[0]}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ updateStatus }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            refetch();
+          }
+        });
   }, [status]);
 
   if (isLoading) {

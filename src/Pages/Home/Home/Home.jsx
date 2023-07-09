@@ -1,3 +1,4 @@
+import Banner from "../../../Components/Banner/Banner";
 import Client from "../../../Components/Client/Client";
 import ContactNow from "../../../Components/ContactNow/ContactNow";
 import HireNow from "../../../Components/HireNow/HireNow";
@@ -10,6 +11,7 @@ import Services from "../Services/Services";
 const Home = () => {
   return (
     <>
+      <Banner></Banner>
       <AboutAgency></AboutAgency>
       <Services></Services>
       <HireNow></HireNow>

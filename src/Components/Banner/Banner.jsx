@@ -1,6 +1,6 @@
 import bannerImage from "../../assets/logos/Code typing-rafiki.png";
 import MessengerCustomerChat from "react-messenger-customer-chat";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import "./Banner.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 const Banner = () => {
   return (
     <div className="banner-container bg-gradient-to-r from-indigo-300">
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <div className="content-div md:flex items-center mx-12">
         <div className="text-content md:w-1/2 ">
           <h1 className="primary">

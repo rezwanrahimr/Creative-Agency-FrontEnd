@@ -9,6 +9,8 @@ import Review from "../Pages/Dashboard/Review/Review";
 import ServiceList from "../Pages/Dashboard/ServiceList/ServiceList";
 import PrivateRoute from "../hooks/PrivateRoute";
 import AllOrder from "../Pages/Dashboard/AllOrder/AllOrder";
+import AddService from "../Pages/Dashboard/AddService/AddService";
+import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs>,
       },
     ],
   },
@@ -57,8 +63,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/dashboard/addService",
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
+
   {
     path: "/login",
     element: <Login></Login>,
