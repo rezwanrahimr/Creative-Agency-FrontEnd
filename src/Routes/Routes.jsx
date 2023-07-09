@@ -11,6 +11,7 @@ import PrivateRoute from "../hooks/PrivateRoute";
 import AllOrder from "../Pages/Dashboard/AllOrder/AllOrder";
 import AddService from "../Pages/Dashboard/AddService/AddService";
 import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
+import OurTeam from "../Pages/OurTeam/OurTeam/OurTeam";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/ourTeam",
+        element: <OurTeam></OurTeam>,
       },
     ],
   },
