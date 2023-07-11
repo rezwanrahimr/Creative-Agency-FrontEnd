@@ -10,7 +10,7 @@ const ServiceItems = () => {
   const { data: services, isLoading } = useQuery({
     queryKey: "",
     queryFn: async () => {
-      const res = await fetch("/services.json");
+      const res = await fetch("http://localhost:5000/service");
       const data = await res.json();
       return data;
     },
@@ -20,7 +20,7 @@ const ServiceItems = () => {
   return (
     <div className="service-items mx-20">
       <div className="service-items-card">
-        {services?.map((service) => (
+        {services?.slice(0, 3).map((service) => (
           <div
             key={service.id}
             className="card service-card  bg-base-100 shadow-xl"

@@ -13,6 +13,7 @@ import AddService from "../Pages/Dashboard/AddService/AddService";
 import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
 import OurTeam from "../Pages/OurTeam/OurTeam/OurTeam";
 import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio/OurPortfolio";
+import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddService></AddService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/makeAdmin",
+        element: (
+          <PrivateRoute>
+            <MakeAdmin></MakeAdmin>
           </PrivateRoute>
         ),
       },

@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddService = () => {
   const handleServiceAdd = (event) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ const AddService = () => {
             subTitle,
             photo: data.data.url,
           };
-          fetch("", {
+          fetch("http://localhost:5000/service", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -33,7 +35,14 @@ const AddService = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+              if (data?.acknowledged) {
+                event.target.reset();
+                Swal.fire(
+                  "New Service Added!",
+                  "Check On Service Section!",
+                  "success"
+                );
+              }
             });
         }
       });

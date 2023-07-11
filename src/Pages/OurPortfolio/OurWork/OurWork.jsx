@@ -19,7 +19,7 @@ const OurWork = () => {
   });
 
   useEffect(() => {
-    const work = data?.filter((element) => element.category.includes(item));
+    const work = data?.filter((element) => element.category?.includes(item));
     setWorkSimple(work);
   }, [item, data]);
 

@@ -4,10 +4,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContexts } from "../../../Context/AuthContext";
 import { verifyUser } from "../../../hooks/VerifyUser";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   // Auth Context
-  const { createUserWithEmail, profileUpdate } = useContext(AuthContexts);
+  const { createUserWithEmail, profileUpdate, googleLogin } =
+    useContext(AuthContexts);
 
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -47,6 +49,7 @@ const SignUp = () => {
                       name,
                       email,
                       image: photoUrl,
+                      role: "User",
                     };
                     verifyUser(userInfo);
                     navigate(from, { replace: true });
@@ -61,6 +64,34 @@ const SignUp = () => {
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          const userInfo = {
+            name: user?.displayName,
+            email: user?.email,
+            image: user?.photoURL,
+            role: "User",
+          };
+          verifyUser(userInfo);
+          navigate(from, { replace: true });
+        }
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        if (errorMessage) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${errorMessage}`,
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        }
       });
   };
   return (
@@ -121,7 +152,9 @@ const SignUp = () => {
               </div>
               <div className="flex  border rounded-full p-1">
                 <img src={googleImg} alt="" width={"8%"} />
-                <button className="ms-8">Continue with Google</button>
+                <button className="ms-8" onClick={handleGoogleLogin}>
+                  Continue with Google
+                </button>
               </div>
               <button>
                 Already have an account?{" "}

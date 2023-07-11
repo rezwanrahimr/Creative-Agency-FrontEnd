@@ -61,7 +61,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard/review">
+                <Link to="/dashboard/makeAdmin">
                   <FontAwesomeIcon icon={faUserPlus} />
                   Make Admin
                 </Link>
