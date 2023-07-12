@@ -11,13 +11,19 @@ const ServiceList = () => {
     queryKey: ["/order", user],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/order?email=${user?.email}`
+        `http://localhost:5000/order?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
       const data = await res.json();
       return data;
     },
   });
 
+  console.log(services);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {services?.length <= 0 ? (
