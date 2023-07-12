@@ -24,28 +24,28 @@ const Navbar = () => {
   let navItems = (
     <>
       <li>
-        <Link className="font-semibold" to="/">
+        <Link className="font-medium" to="/">
           HOME
         </Link>
       </li>
       <li>
-        <Link className="font-semibold" to="/ourPortfolio">
+        <Link className="font-medium" to="/ourPortfolio">
           OUR PORTFOLIO
         </Link>
       </li>
       <li>
-        <Link className="font-semibold" to="/ourTeam">
+        <Link className="font-medium" to="/ourTeam">
           OUR TEAM
         </Link>
       </li>
       <li>
-        <Link className="font-semibold" to="/contactUs">
+        <Link className="font-medium" to="/contactUs">
           CONTACT US
         </Link>
       </li>
       {user && (
         <li>
-          <Link className="font-semibold" to="/dashboard">
+          <Link className="font-medium" to="/dashboard">
             DASHBOARD
           </Link>
         </li>
@@ -60,7 +60,7 @@ const Navbar = () => {
       <li>
         {user ? (
           <Link
-            className="bg-primary text-white user-btn font-semibold"
+            className="bg-primary text-white user-btn font-medium"
             onClick={SignOut}
           >
             LOG-OUT
@@ -68,7 +68,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="bg-primary text-white user-btn font-semibold"
+            className="bg-primary text-white user-btn font-medium"
           >
             LOGIN
           </Link>

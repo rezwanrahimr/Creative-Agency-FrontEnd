@@ -5,7 +5,8 @@ import "./AboutAgency.scss";
 
 const AboutAgency = () => {
   return (
-    <div className="my-12">
+    <div className="py-12 relative">
+      <div className="about-bg"></div>
       <div className="md:flex items-center mx-12">
         <div className="md:w-1/2">
           <img src={AboutAgencyImg} alt="" />
