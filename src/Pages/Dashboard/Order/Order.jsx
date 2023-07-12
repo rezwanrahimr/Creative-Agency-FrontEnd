@@ -8,7 +8,7 @@ const Order = () => {
   const [service, setService] = useState("Website Design & Development");
   const [proDetails, setProDetails] = useState("");
 
-  //
+  //Order Form Handle
   const handleOrder = (e) => {
     e.preventDefault();
 
@@ -39,10 +39,10 @@ const Order = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        data.acknowledged &&
+        if (data?.acknowledged) {
           Swal.fire("Thanks for Order", "You Order is Submit!", "success");
-        e.target.reset();
+          e.target.reset();
+        }
       });
   };
   return (

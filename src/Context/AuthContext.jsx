@@ -45,7 +45,7 @@ const AuthContext = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
+        // const uid = user.uid;
         setUser(user);
         setIsLoading(false);
       } else {
