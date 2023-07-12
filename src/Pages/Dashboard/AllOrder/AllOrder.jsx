@@ -43,7 +43,7 @@ const AllOrder = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table ">
+      <table className="table table-xs md:table-lg">
         {/* head */}
         <thead>
           <tr>

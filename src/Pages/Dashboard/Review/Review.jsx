@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContexts } from "../../../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Review = () => {
   const { user } = useContext(AuthContexts);
@@ -28,12 +29,13 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          //
+          Swal.fire("Thanks for Review", "You Review is Submit!", "success");
+          e.target.reset();
         }
       });
   };
   return (
-    <form className="w-1/2" onSubmit={handleReview}>
+    <form className="md:w-1/2" onSubmit={handleReview}>
       <input
         name="name"
         type="text"

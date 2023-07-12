@@ -97,7 +97,7 @@ const MakeAdmin = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-xs md:table-lg">
           {/* head */}
           <thead>
             <tr>
@@ -127,12 +127,14 @@ const MakeAdmin = () => {
                   <span className="font-bold">{element.role}</span>
                 </td>
                 <td>
-                  <button
-                    className="btn btn-primary btn-xs"
-                    onClick={() => admin(element?._id)}
-                  >
-                    Make Admin
-                  </button>
+                  {element.role !== "Admin" && (
+                    <button
+                      className="btn btn-primary btn-xs"
+                      onClick={() => admin(element?._id)}
+                    >
+                      Make Admin
+                    </button>
+                  )}
                 </td>
                 <th>
                   <button

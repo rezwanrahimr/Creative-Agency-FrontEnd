@@ -48,7 +48,7 @@ const AddService = () => {
       });
   };
   return (
-    <form className="w-1/2" onSubmit={handleServiceAdd}>
+    <form className="md:w-1/2" onSubmit={handleServiceAdd}>
       <input
         name="title"
         type="text"
