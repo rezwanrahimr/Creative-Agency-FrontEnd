@@ -24,20 +24,30 @@ const Navbar = () => {
   let navItems = (
     <>
       <li>
-        <Link to="/">HOME</Link>
+        <Link className="font-semibold" to="/">
+          HOME
+        </Link>
       </li>
       <li>
-        <Link to="/ourPortfolio">OUR PORTFOLIO</Link>
+        <Link className="font-semibold" to="/ourPortfolio">
+          OUR PORTFOLIO
+        </Link>
       </li>
       <li>
-        <Link to="/ourTeam">OUR TEAM</Link>
+        <Link className="font-semibold" to="/ourTeam">
+          OUR TEAM
+        </Link>
       </li>
       <li>
-        <Link to="/contactUs">CONTACT US</Link>
+        <Link className="font-semibold" to="/contactUs">
+          CONTACT US
+        </Link>
       </li>
       {user && (
         <li>
-          <Link to="/dashboard">DASHBOARD</Link>
+          <Link className="font-semibold" to="/dashboard">
+            DASHBOARD
+          </Link>
         </li>
       )}
       {location.pathname == "/dashboard" && (
@@ -49,11 +59,17 @@ const Navbar = () => {
       )}
       <li>
         {user ? (
-          <Link className="bg-primary text-white user-btn" onClick={SignOut}>
+          <Link
+            className="bg-primary text-white user-btn font-semibold"
+            onClick={SignOut}
+          >
             LOG-OUT
           </Link>
         ) : (
-          <Link to="/login" className="bg-primary text-white user-btn">
+          <Link
+            to="/login"
+            className="bg-primary text-white user-btn font-semibold"
+          >
             LOGIN
           </Link>
         )}
@@ -83,7 +99,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
           >
             {navItems}
           </ul>

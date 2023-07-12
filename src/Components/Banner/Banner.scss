@@ -3,6 +3,18 @@
 
 .banner-container {
   position: relative;
+  background: #c7ecff;
+  background: -webkit-linear-gradient(top, #c7ecff 0, #f9efff 100%);
+  background: linear-gradient(to bottom, #c7ecff 0, #f9efff 100%);
+}
+.bg-shape {
+  position: absolute !important;
+  z-index: 1 !important;
+  width: 80% !important;
+  height: 100% !important;
+  overflow: hidden;
+  top: -40px !important;
+  left: -38px !important;
 }
 .content-div {
   padding-top: 100px;
@@ -12,6 +24,7 @@
   }
 }
 .text-content {
+  z-index: 2 !important;
   h1 {
     font-size: $primary-font-size;
     font-weight: 700;
