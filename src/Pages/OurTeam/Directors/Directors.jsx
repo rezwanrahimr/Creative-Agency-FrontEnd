@@ -15,21 +15,21 @@ const Directors = () => {
       <div className="md:flex mt-12">
         <div className="m-5">
           <img className="rounded-lg" src={teamB} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">Moana Smile</h1>
             <p>Company CEO</p>
           </div>
         </div>
         <div className="m-5">
           <img className="rounded-lg" src={teamA} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">Sasa Smile</h1>
             <p>Company CTO</p>
           </div>
         </div>
         <div className="m-5">
           <img className="rounded-lg" src={teamC} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Bhvika Smile
             </h1>

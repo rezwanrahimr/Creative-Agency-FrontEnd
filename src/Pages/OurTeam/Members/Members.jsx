@@ -17,7 +17,7 @@ const Members = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-1 mt-12">
         <div className="m-3">
           <img className="rounded-lg" src={team1} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Shakita Daoust
             </h1>
@@ -26,7 +26,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team2} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Gerard Licari
             </h1>
@@ -35,7 +35,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team3} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Janna Rother
             </h1>
@@ -44,7 +44,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team4} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Gerard Licari
             </h1>
@@ -53,7 +53,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team5} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Teisha Yearta
             </h1>
@@ -62,7 +62,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team6} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Cary Montgomery
             </h1>
@@ -71,7 +71,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team7} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Mervin Griego
             </h1>
@@ -80,7 +80,7 @@ const Members = () => {
         </div>
         <div className="m-3">
           <img className="rounded-lg" src={team8} alt="" />
-          <div>
+          <div className="mt-3">
             <h1 className="text-primary text-2xl font-semibold">
               Bianca Goers
             </h1>
