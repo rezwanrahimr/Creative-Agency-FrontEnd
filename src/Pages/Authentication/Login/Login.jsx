@@ -7,7 +7,7 @@ import { verifyUser } from "../../../hooks/VerifyUser";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { loginWithEmail, googleLogin } = useContext(AuthContexts);
+  const { loginWithEmail, googleLogin, resetEmail } = useContext(AuthContexts);
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -31,8 +31,47 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        if (errorMessage) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${errorMessage}`,
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        }
       });
+  };
+
+  const handleResetEmail = async () => {
+    const { value: email } = await Swal.fire({
+      title: "Input email address",
+      input: "email",
+      inputLabel: "Your email address",
+      inputPlaceholder: "Enter your email address",
+    });
+
+    if (email) {
+      resetEmail(email)
+        .then(() => {
+          // Password reset email sent!
+          Swal.fire(
+            "Password reset email sent!",
+            "clicked your email!",
+            "success"
+          );
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          if (errorMessage) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `${errorMessage}`,
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
+          }
+        });
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -95,7 +134,11 @@ const Login = () => {
                     className="input input-bordered"
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <a
+                      href="#"
+                      className="label-text-alt link link-hover"
+                      onClick={handleResetEmail}
+                    >
                       Forgot password?
                     </a>
                   </label>

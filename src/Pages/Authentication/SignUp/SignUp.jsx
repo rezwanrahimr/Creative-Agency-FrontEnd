@@ -63,7 +63,14 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        if (errorMessage) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${errorMessage}`,
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        }
       });
   };
 
@@ -97,59 +104,61 @@ const SignUp = () => {
   return (
     <div>
       <div className="hero min-h-screen ">
-        <form className="hero-content flex-col " onSubmit={handleSignUpForm}>
+        <div className="hero-content flex-col ">
           <div className="text-center ">
             <img className="company-logo" src={logo} alt="" />
             <h1 className="text-2xl mt-3 font-bold">Sign Up</h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="name"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input
-                  name="email"
-                  type="text"
-                  placeholder="email"
-                  className="input input-bordered"
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  name="password"
-                  type="text"
-                  placeholder="password"
-                  className="input input-bordered"
-                />
-                <label className="label">
-                  <span className="label-text"></span>
-                </label>
-                <input
-                  name="image"
-                  type="file"
-                  className="file-input w-full max-w-xs"
-                />
-              </div>
-              <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">
-                  Sign Up
-                </button>
-              </div>
+              <form onSubmit={handleSignUpForm}>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="name"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input
+                    name="email"
+                    type="text"
+                    placeholder="email"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    name="password"
+                    type="text"
+                    placeholder="password"
+                    className="input input-bordered"
+                  />
+                  <label className="label">
+                    <span className="label-text"></span>
+                  </label>
+                  <input
+                    name="image"
+                    type="file"
+                    className="file-input w-full max-w-xs"
+                  />
+                </div>
+                <div className="form-control mt-6">
+                  <button type="submit" className="btn btn-primary">
+                    Sign Up
+                  </button>
+                </div>
+              </form>
               <div className="flex  border rounded-full p-1">
                 <img src={googleImg} alt="" width={"8%"} />
                 <button className="ms-8" onClick={handleGoogleLogin}>
@@ -164,7 +173,7 @@ const SignUp = () => {
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../Firebase/Firebase";
 
@@ -35,6 +36,11 @@ const AuthContext = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  // Reset Email
+  const resetEmail = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   // User
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -49,6 +55,7 @@ const AuthContext = ({ children }) => {
     });
   }, [auth]);
 
+  console.log("user", user);
   // LogOut
   const logOut = () => {
     return signOut(auth);
@@ -68,6 +75,7 @@ const AuthContext = ({ children }) => {
     createUserWithEmail,
     loginWithEmail,
     googleLogin,
+    resetEmail,
     logOut,
     profileUpdate,
   };
