@@ -19,3 +19,10 @@
   justify-content: center;
   align-items: flex-start;
 }
+
+@media (max-width: "768px") {
+  .info-card {
+    margin: 10px;
+    padding: 15px;
+  }
+}
