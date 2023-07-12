@@ -80,7 +80,10 @@ const OurWork = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-8">
         {workSimple?.map((element, index) => (
-          <div key={index} className="w-full h-full ">
+          <div
+            key={index}
+            className="w-full h-full hover:-translate-y-1 hover:scale-110  duration-300"
+          >
             <img className="rounded-xl" src={element.image} alt="" />
             <div className="text-center mt-2">
               <h1 className="text-primary font-semibold text-2xl">
