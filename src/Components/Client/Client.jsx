@@ -9,12 +9,12 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Client = () => {
   return (
-    <div className="client-container mt-20">
-      <div className="text-center mb-24">
+    <div className="client-container mt-20 ">
+      <div className="text-center md:mb-24">
         <h2 className="text-secondary">OUR HAPPY CUSTOMERS</h2>
         <h1 className="text-primary font-bold text-4xl">Some of our Clients</h1>
       </div>
-      <div className="flex justify-around items-center client-content my-12 ">
+      <div className="flex justify-around items-center client-content my-5 md:my-12 ">
         <img src={client1} alt="" width={"140px"} height={"36px"} />
         <img src={client2} alt="" width={"129px"} height={"44px"} />
         <img src={client3} alt="" width={"99px"} height={"56px"} />
