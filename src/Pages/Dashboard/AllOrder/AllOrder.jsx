@@ -10,7 +10,9 @@ const AllOrder = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["all-order"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/all-order");
+      const res = await fetch(
+        "https://creative-agency-backend-henna.vercel.app/all-order"
+      );
       const data = await res.json();
       return data;
     },
@@ -22,13 +24,16 @@ const AllOrder = () => {
   useEffect(() => {
     let updateStatus = status[1];
     status[0] !== undefined &&
-      fetch(`http://localhost:5000/order/${status[0]}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ updateStatus }),
-      })
+      fetch(
+        `https://creative-agency-backend-henna.vercel.app/order/${status[0]}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ updateStatus }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data) {

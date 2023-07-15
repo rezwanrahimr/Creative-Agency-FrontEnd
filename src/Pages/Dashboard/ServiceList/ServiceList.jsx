@@ -11,7 +11,7 @@ const ServiceList = () => {
     queryKey: ["/order", user],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/order?email=${user?.email}`,
+        `https://creative-agency-backend-henna.vercel.app/order?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("token")}`,
@@ -29,7 +29,7 @@ const ServiceList = () => {
       {services?.length <= 0 ? (
         <h1 className="text-2xl font-bold text-primary">
           No Service Available ! <br />{" "}
-          <Link to="/dashboard/order" className="text-secondary">
+          <Link to="/dashboard" className="text-secondary">
             Add Service <FontAwesomeIcon icon={faArrowRight} />
           </Link>
         </h1>

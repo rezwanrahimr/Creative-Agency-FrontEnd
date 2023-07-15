@@ -26,7 +26,7 @@ const AddService = () => {
             subTitle,
             photo: data.data.url,
           };
-          fetch("http://localhost:5000/service", {
+          fetch("https://creative-agency-backend-henna.vercel.app/service", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

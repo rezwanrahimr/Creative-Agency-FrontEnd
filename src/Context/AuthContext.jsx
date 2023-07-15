@@ -55,7 +55,6 @@ const AuthContext = ({ children }) => {
     });
   }, [auth]);
 
-  console.log("user", user);
   // LogOut
   const logOut = () => {
     return signOut(auth);

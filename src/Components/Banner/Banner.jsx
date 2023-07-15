@@ -42,6 +42,11 @@ const Banner = () => {
       </div>
       <div className="bg-shape">
         <img src={bgShape} alt="" />
+        <MessengerCustomerChat
+          pageId="111784315290881"
+          appId="323392591982405"
+        />
+        ,
       </div>
     </div>
   );

@@ -11,7 +11,9 @@ const MakeAdmin = () => {
   } = useQuery({
     queryKey: ["/user"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/user");
+      const res = await fetch(
+        "https://creative-agency-backend-henna.vercel.app/user"
+      );
       const data = await res.json();
       return data;
     },
@@ -33,7 +35,7 @@ const MakeAdmin = () => {
         confirmButtonText: "Yes",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/user/${id}`, {
+          fetch(`https://creative-agency-backend-henna.vercel.app/user/${id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -69,7 +71,7 @@ const MakeAdmin = () => {
         confirmButtonText: "Yes",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/user/${id}`, {
+          fetch(`https://creative-agency-backend-henna.vercel.app/user/${id}`, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",

@@ -10,7 +10,9 @@ const ServiceItems = () => {
   const { data: services, isLoading } = useQuery({
     queryKey: "",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/service");
+      const res = await fetch(
+        "https://creative-agency-backend-henna.vercel.app/service"
+      );
       const data = await res.json();
       return data;
     },
@@ -22,7 +24,7 @@ const ServiceItems = () => {
       <div className="service-items-card">
         {services?.slice(0, 3).map((service) => (
           <div
-            key={service.id}
+            key={service._id}
             className="card service-card  bg-base-100 shadow-xl hover:-translate-y-1 hover:scale-110  duration-300"
           >
             <figure className="px-10 card-img">

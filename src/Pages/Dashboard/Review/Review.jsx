@@ -19,7 +19,7 @@ const Review = () => {
       image: user?.photoURL,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://creative-agency-backend-henna.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

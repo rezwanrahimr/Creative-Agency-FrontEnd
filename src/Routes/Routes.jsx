@@ -14,6 +14,7 @@ import ContactUs from "../Pages/ContactUs/ContactUs/ContactUs";
 import OurTeam from "../Pages/OurTeam/OurTeam/OurTeam";
 import OurPortfolio from "../Pages/OurPortfolio/OurPortfolio/OurPortfolio";
 import MakeAdmin from "../Pages/Dashboard/MakeAdmin/MakeAdmin";
+import VerifyAdmin from "../hooks/VerifyAdmin";
 
 const router = createBrowserRouter([
   {
@@ -70,7 +71,10 @@ const router = createBrowserRouter([
         path: "/dashboard/allOrder",
         element: (
           <PrivateRoute>
-            <AllOrder></AllOrder>
+            <VerifyAdmin>
+              {" "}
+              <AllOrder></AllOrder>
+            </VerifyAdmin>
           </PrivateRoute>
         ),
       },
@@ -78,7 +82,10 @@ const router = createBrowserRouter([
         path: "/dashboard/addService",
         element: (
           <PrivateRoute>
-            <AddService></AddService>
+            <VerifyAdmin>
+              {" "}
+              <AddService></AddService>
+            </VerifyAdmin>
           </PrivateRoute>
         ),
       },
@@ -86,7 +93,10 @@ const router = createBrowserRouter([
         path: "/dashboard/makeAdmin",
         element: (
           <PrivateRoute>
-            <MakeAdmin></MakeAdmin>
+            <VerifyAdmin>
+              {" "}
+              <MakeAdmin></MakeAdmin>
+            </VerifyAdmin>
           </PrivateRoute>
         ),
       },

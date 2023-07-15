@@ -1,31 +1,72 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import Loading from "../../../Components/Loading/Loading";
+import image1 from "../../../assets/portfolio/app-img1.jpg";
+import image2 from "../../../assets/portfolio/app-img2.jpg";
+import image3 from "../../../assets/portfolio/app-img3.jpg";
+import image4 from "../../../assets/portfolio/app-img4.jpg";
+import image5 from "../../../assets/portfolio/app-img5.jpg";
+import image6 from "../../../assets/portfolio/app-img6.jpg";
 
 const OurWork = () => {
   const [item, setItem] = useState("All");
   const [workSimple, setWorkSimple] = useState([]);
-  const { data = [], isLoading } = useQuery({
+
+  /*   const { data = [], isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
       try {
-        const res = await fetch("/public/portfolio.json");
+        const res = await fetch("portfolio.json");
         const data = await res.json();
         return data;
       } catch (error) {
         console.log(error);
       }
     },
-  });
+  }); */
+
+  const data = [
+    {
+      name: "Pets Care & Training App",
+      title: "iOs, Android",
+      category: "Mobile App All Website",
+      image: image1,
+    },
+    {
+      name: "Car Rental App",
+      title: "Graphic, Print",
+      category: "Mobile App All Graphic",
+      image: image2,
+    },
+    {
+      name: "Event Management App",
+      title: "Graphic, Print",
+      category: "Mobile App All Graphic",
+      image: image3,
+    },
+    {
+      name: "Restaurant App",
+      title: "Graphic, Print",
+      category: "Mobile App All Graphic Website",
+      image: image4,
+    },
+    {
+      name: "Restaurant / Hotel App",
+      title: "Graphic, Print",
+      category: "Mobile App All Graphic",
+      image: image5,
+    },
+    {
+      name: "Super Mart App",
+      title: "Graphic, Print",
+      category: "Mobile App All Graphic Website",
+      image: image6,
+    },
+  ];
 
   useEffect(() => {
     const work = data?.filter((element) => element.category?.includes(item));
     setWorkSimple(work);
-  }, [item, data]);
+  }, [item]);
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
   return (
     <div className="p-12 ">
       <div className="flex justify-between">

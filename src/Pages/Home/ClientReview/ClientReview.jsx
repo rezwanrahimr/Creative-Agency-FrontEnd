@@ -14,7 +14,9 @@ const ClientReview = () => {
   const { data } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/review");
+      const res = await fetch(
+        "https://creative-agency-backend-henna.vercel.app/review"
+      );
       const data = await res.json();
       return data;
     },
