@@ -1,9 +1,7 @@
 .footer {
-  background: rgb(214, 255, 252);
-  background: linear-gradient(
-    90deg,
-    rgba(214, 255, 252, 1) 0%,
-    rgba(255, 239, 245, 1) 76%
-  );
-  padding: 50px;
+  padding: 25px;
+  color: #111430 !important;
+}
+.footer-title {
+  opacity: 100 !important;
 }

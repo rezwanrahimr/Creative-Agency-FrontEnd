@@ -23,7 +23,7 @@ const ServiceItems = () => {
         {services?.slice(0, 3).map((service) => (
           <div
             key={service.id}
-            className="card service-card  bg-base-100 shadow-xl"
+            className="card service-card  bg-base-100 shadow-xl hover:-translate-y-1 hover:scale-110  duration-300"
           >
             <figure className="px-10 card-img">
               <img src={service?.photo} alt="Shoes" className="rounded-xl" />
