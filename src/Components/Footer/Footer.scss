@@ -5,3 +5,12 @@
 .footer-title {
   opacity: 100 !important;
 }
+
+@media (max-width: "768px") {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
