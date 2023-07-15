@@ -20,8 +20,8 @@ const ClientReview = () => {
     },
   });
   return (
-    <div className="md:flex items-center justify-around review-container py-24 px-12">
-      <div className="review-content w-2/5">
+    <div className="md:flex items-center justify-around review-container py-12 md:py-24 px-12">
+      <div className="review-content md:w-2/5">
         <h2 className="text-secondary">CLIENTS TESTIMONIAL</h2>
         <h1 className="text-primary">
           What our clients say about our Company.
@@ -33,7 +33,7 @@ const ClientReview = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper w-3/5 p-5"
+        className="mySwiper md:w-3/5 md:p-5"
       >
         {data?.slice(0, 5).map((review) => (
           <SwiperSlide key={review._id} className="">
